@@ -4714,7 +4714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  turnSpeed: 10
+  turnSpeed: 20
   hInput: 0
   fInput: 0
 --- !u!1001 &1859262126
