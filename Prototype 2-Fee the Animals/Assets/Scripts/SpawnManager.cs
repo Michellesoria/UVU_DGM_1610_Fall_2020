@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
-    private float spawnRangeX =20;
+    private float spawnRangeX = 20;
     private float spawnPosZ = 20;
     private float startDelay = 2;
     private float spawnInterval = 1.5f;
@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Spawn random animal prefabe every 1.5 seconds
         InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
     }
 
@@ -22,7 +23,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    
+    //Spawn random animal prefab at random position
     void SpawnRandomAnimal()
     {
         int animalIndex = Random.Range(0, animalPrefabs.Length);
