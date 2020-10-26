@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6403659001932016776}
   - component: {fileID: 6403659001933069258}
   - component: {fileID: 6403659001930749704}
+  - component: {fileID: 2061588076187741318}
   m_Layer: 0
   m_Name: Crate_01
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,4 +95,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44224fa390bc3143905e4f67ba4e733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
+--- !u!114 &2061588076187741318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403659001930882258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f618d51b9fa4984da14a7ba94af1596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
