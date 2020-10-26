@@ -21,14 +21,15 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
-            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false; 
+            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        
         }
-        void OnCollisionEnter(Collision other)
+    }
+    void OnCollisionEnter(Collision other)
         {
             Debug.Log(isGrounded); 
             Debug.Log(other);
             isGrounded = true; 
         }
-    }
 }
