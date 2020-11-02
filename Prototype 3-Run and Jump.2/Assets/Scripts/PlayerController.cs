@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = true; 
     public bool gameOver = false;
     private Animator playerAnim;
+    //Particle Effects
+    public ParticleSystem explosionParticle;
+    public ParticleSystem dirtParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false; 
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             playerAnim.SetTrigger("Jump_trig");
+            dirtParticle.Stop();
         
         }
     }
@@ -35,13 +39,17 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.CompareTag("Ground"))
             {
                 isGrounded = true; 
+                dirtParticle.Play();
             }
             else if(other.gameObject.CompareTag("Obstacle"))
             {
                 gameOver = true;
                 Debug.Log("Game Over!");
+                explosionParticle.Play();
                 playerAnim.SetBool("Death_b", true);
                 playerAnim.SetInteger("DeathType_int", 1);
+                dirtParticle.Stop();
+                
             }
         }
 }
