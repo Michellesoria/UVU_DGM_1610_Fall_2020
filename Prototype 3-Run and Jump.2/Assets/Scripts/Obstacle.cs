@@ -14,6 +14,7 @@ public class Obstacle : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    //move obstacle left at deltatime 
     {
         transform.Translate(Vector3.left * Time.deltaTime * speed);
     }

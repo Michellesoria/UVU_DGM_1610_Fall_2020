@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+    //player will jump when spacebar is pressed, dirt particle stops, jump sound plays
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && !gameOver)
@@ -42,12 +43,14 @@ public class PlayerController : MonoBehaviour
         }
     }
     void OnCollisionEnter(Collision other)
+    //player is grounded dirtparticle will play
         {
             if(other.gameObject.CompareTag("Ground"))
             {
                 isGrounded = true; 
                 dirtParticle.Play();
             }
+    //if player collides with the obstacle, game is over, crash sound plays, death animation plays, and dirt particle stops
             else if(other.gameObject.CompareTag("Obstacle"))
             {
                 gameOver = true;
