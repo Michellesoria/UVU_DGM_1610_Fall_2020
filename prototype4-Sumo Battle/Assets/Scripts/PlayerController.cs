@@ -21,16 +21,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      //player moves forward or back using up and down arrow keys
       float forwardInput = Input.GetAxis("Vertical");
       playerRb.AddForce(focalPoint.transform.forward * forwardInput * Time.deltaTime * speed); 
       powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f,0);
     }
 
-    //if player collides with the powerup, power up is destroyed 
+    //if player collides with the powerup, power up is destroyed and it set to active
     private void OnTriggerEnter(Collider collider)
     {
         if(collider.CompareTag("PowerUp"))
         {
+          //when player collides with powerup, object is destroyed and 7 sec countdown starts
           hasPowerUp = true;
           Debug.Log("PowerUp = " + hasPowerUp);
           Destroy(collider.gameObject);
