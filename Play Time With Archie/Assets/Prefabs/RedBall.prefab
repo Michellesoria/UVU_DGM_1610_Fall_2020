@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3158512656800049775}
   - component: {fileID: 4851434169164840042}
   - component: {fileID: 692653997351791718}
+  - component: {fileID: 4023384831650656266}
+  - component: {fileID: 3228352716759456305}
   m_Layer: 0
   m_Name: RedBall
   m_TagString: Untagged
@@ -93,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2484b9e32dc1c704e88d7ccb4c49be9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
 --- !u!114 &692653997351791718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,5 +106,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 086d95260f6b3fb45b087cd9092e67e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &4023384831650656266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3158512656798119087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19919996, y: 0.19919997, z: 0.20978121}
+  m_Center: {x: 0, y: 0.0000000037252903, z: -0.00529062}
+--- !u!114 &3228352716759456305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3158512656798119087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9093545d56ecc42a4c1a6ea4a87d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
