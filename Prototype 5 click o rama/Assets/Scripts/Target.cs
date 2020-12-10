@@ -5,16 +5,21 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private Rigidbody targetRB;
+    private GameManager gameManager; 
     private float minSpeed = 12;
     private float maxSpeed = 16;
     private float maxTorque = 10;
     private float xRange = 4;
-    private float ySpawnPos = -6;
+    private float ySpawnPos = -2;
+    public ParticleSystem explosionParticle;
+    public int pointValue; 
+    
 
     // Start is called before the first frame update
     void Start()
     {
         targetRB = GetComponent<Rigidbody>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         //objects are thrown upward
         targetRB.AddForce(RandomForce(), ForceMode.Impulse);
         //rotates and moves objects randomly 
@@ -27,6 +32,19 @@ public class Target : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        gameManager.UpdateScore(pointValue);
+    
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
     }
 
     Vector3 RandomForce()
