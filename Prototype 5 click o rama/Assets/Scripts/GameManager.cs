@@ -15,24 +15,12 @@ public class GameManager : MonoBehaviour
     public bool isGameActive; 
     private int score;
     private float spawnRate = 2; 
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     IEnumerator SpawnTarget()
     {
         while(isGameActive)
         {
+            //spawns objects every spawn rate depending on difficulty 
             yield return new WaitForSeconds(spawnRate);
             //selects random object in the list
             int index = Random.Range(0, targets.Count);
@@ -50,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        //game over text and button appear when game is over
         gameOverText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
         isGameActive = false;
@@ -57,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        //resart game
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

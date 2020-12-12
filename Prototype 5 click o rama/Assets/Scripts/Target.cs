@@ -28,12 +28,6 @@ public class Target : MonoBehaviour
         transform.position = RandomSpawnPos();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseDown()
     {
         if(gameManager.isGameActive)
@@ -46,7 +40,9 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //when objects hit the sensor, they are destroyed
         Destroy(gameObject);
+        //when a good object hits the sensor, game is over
         if(!gameObject.CompareTag("Bad"))
         {
             gameManager.GameOver();
@@ -55,16 +51,19 @@ public class Target : MonoBehaviour
 
     Vector3 RandomForce()
     {
+        //random speed of objects
         return Vector3.up * Random.Range(minSpeed, maxSpeed);
     }
 
     float RandomTorque()
     {
+        //rotates objects in random direction 
         return Random.Range(-maxTorque, maxTorque);
     }
 
     Vector3 RandomSpawnPos()
     {
+        //spawns objects at randome position
         return new Vector3(Random.Range(-xRange,xRange), ySpawnPos);
     }
 }
