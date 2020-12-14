@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //player stops at given ranges to not exit the screen
         if(transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
@@ -34,9 +35,12 @@ public class PlayerController : MonoBehaviour
         {
            transform.position = new Vector3(transform.position.x, transform.position.y, zRange); 
         }
+        //player moves using the left, right, up, and down arrow keys and the player faces the direction its moving
+
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
+        Vector3 newPosition = new Vector3(horizontalInput, 0, verticalInput);
+        transform.Translate(newPosition * Time.deltaTime * speed, Space.World);
+        transform.LookAt(newPosition + transform.position);
     }
 }
